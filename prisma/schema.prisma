@@ -1,0 +1,15 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// Comando: npx prisma db push - para criar a tabela no banco de dados
+model user {
+  id Int @id @default(autoIncriment())
+  name String
+  email String @unique
+}
